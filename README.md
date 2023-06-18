@@ -1,1 +1,2 @@
-# atlas-cosmic-courier
+# Atlas: Cosmic Courier
+An action/spaceflight simulator made with Unity
