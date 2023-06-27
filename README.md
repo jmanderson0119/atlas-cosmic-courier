@@ -46,7 +46,3 @@ If you have any questions, suggestions, or feedback, please reach out at [jma195
 
 
 **Thank you for visiting, and enjoy your mission <3**
-
-## License
-
-Atlas: Comic Courier is released under the MIT License. Please see the LICENSE file for more details.
