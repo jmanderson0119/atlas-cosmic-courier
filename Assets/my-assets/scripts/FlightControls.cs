@@ -5,10 +5,14 @@ using UnityEngine;
 // FlightControls allows the player the pitch, yaw, roll, and throttle in the level
 public class FlightControls : MonoBehaviour
 {
-    [Header("Input Mode")]
+    [Header("Ship")] // refers to the ship the player is using
+    [SerializeField] private GameObject shipBuild;
+    private ShipStats shipStats;
+
+    [Header("Input Mode")] // FPS/Flight Simulator selection
     [SerializeField] private InputMode inputMode;
 
-    [Header("Input Deadzones")]
+    [Header("Input Deadzones")] // mouse "snap to center" sensitivity
     [SerializeField] private int mouseLook;
 
     [Header("Input Speeds")] // player movement sensitivities
@@ -25,11 +29,21 @@ public class FlightControls : MonoBehaviour
     [SerializeField] private float throttleIn;
     [SerializeField] private float rollIn;
     [SerializeField] private Vector2 mouseIn;
-
     private Vector2 lookIn; // mouse input relative to the screen center
 
     void Start()
-    {
+    { 
+        ShipStats shipStats = shipBuild.GetComponent<ShipStats>();
+
+        inputMode = shipStats.getInputMode();
+        mouseLook = shipStats.getMouseLook();
+        throttleSpeed = shipStats.getThrottleSpeed();
+        pitchSpeed = shipStats.getPitchSpeed();
+        yawSpeed = shipStats.getYawSpeed();
+        rollSpeed = shipStats.getRollSpeed();
+        throttleAcceleration = shipStats.getThrottleAcceleration();
+        rollAcceleration = shipStats.getRollAcceleration();
+
         // cursor becomes invisible + confined to the game view
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
@@ -65,14 +79,7 @@ public class FlightControls : MonoBehaviour
         rollIn = Mathf.Lerp(rollIn, Input.GetAxisRaw("Roll") * rollSpeed, rollAcceleration * Time.deltaTime);
 
         // rotate and translate the ship at the corresponding speed by frame
-        transform.Rotate(-mouseIn.y * pitchSpeed * Time.deltaTime, mouseIn.x * yawSpeed * Time.deltaTime, rollIn * Time.deltaTime, Space.Self);
-        transform.position += transform.forward * throttleIn * Time.deltaTime;
-    }
-    
-    // selection between different types of mouse look calculations
-    private enum InputMode
-    {
-        FPS,
-        FlightSim
+        shipBuild.transform.Rotate(-mouseIn.y * pitchSpeed * Time.deltaTime, mouseIn.x * yawSpeed * Time.deltaTime, rollIn * Time.deltaTime, Space.Self);
+        shipBuild.transform.position += shipBuild.transform.forward * throttleIn * Time.deltaTime;
     }
 }
