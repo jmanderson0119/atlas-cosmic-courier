@@ -17,6 +17,7 @@ public class ShipStats : MonoBehaviour
      */
     [Header("Input Mode")] // mouse "snap to center" sensitivity
     [SerializeField] private InputMode inputModeConfig;
+    [SerializeField] private float invertedMouseConfig;
 
     [Header("Input Deadzones")] // player movement sensitivities
     [SerializeField] private int mouseLookConfig;
@@ -33,6 +34,7 @@ public class ShipStats : MonoBehaviour
 
     // getter methods for ship config settings
     public InputMode getInputMode() => inputModeConfig;
+    public float getInvertedMouse() => invertedMouseConfig;
     public int getMouseLook() => mouseLookConfig;
     public float getThrottleSpeed() => throttleSpeedConfig;
     public float getPitchSpeed() => pitchSpeedConfig;

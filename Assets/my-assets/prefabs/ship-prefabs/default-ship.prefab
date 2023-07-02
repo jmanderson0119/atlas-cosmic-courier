@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputModeConfig: 1
+  invertedMouseConfig: 1
   mouseLookConfig: 80
   throttleSpeedConfig: 160
   pitchSpeedConfig: 50

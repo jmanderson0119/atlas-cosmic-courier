@@ -11,6 +11,7 @@ public class FlightControls : MonoBehaviour
 
     [Header("Input Mode")] // FPS/Flight Simulator selection
     [SerializeField] private InputMode inputMode;
+    [SerializeField] private float invertedMouse;
 
     [Header("Input Deadzones")] // mouse "snap to center" sensitivity
     [SerializeField] private int mouseLook;
@@ -36,6 +37,7 @@ public class FlightControls : MonoBehaviour
         ShipStats shipStats = shipBuild.GetComponent<ShipStats>();
 
         inputMode = shipStats.getInputMode();
+        invertedMouse = shipStats.getInvertedMouse();
         mouseLook = shipStats.getMouseLook();
         throttleSpeed = shipStats.getThrottleSpeed();
         pitchSpeed = shipStats.getPitchSpeed();
@@ -79,7 +81,7 @@ public class FlightControls : MonoBehaviour
         rollIn = Mathf.Lerp(rollIn, Input.GetAxisRaw("Roll") * rollSpeed, rollAcceleration * Time.deltaTime);
 
         // rotate and translate the ship at the corresponding speed by frame
-        shipBuild.transform.Rotate(-mouseIn.y * pitchSpeed * Time.deltaTime, mouseIn.x * yawSpeed * Time.deltaTime, rollIn * Time.deltaTime, Space.Self);
+        shipBuild.transform.Rotate(invertedMouse * mouseIn.y * pitchSpeed * Time.deltaTime, mouseIn.x * yawSpeed * Time.deltaTime, rollIn * Time.deltaTime, Space.Self);
         shipBuild.transform.position += shipBuild.transform.forward * throttleIn * Time.deltaTime;
     }
 }
