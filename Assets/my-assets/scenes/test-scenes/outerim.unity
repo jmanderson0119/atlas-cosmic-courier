@@ -299,6 +299,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: default-ship
       objectReference: {fileID: 0}
+    - target: {fileID: 4437552298817687761, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437552298817687761, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: inputModeConfig
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
 --- !u!1 &958658337 stripped
@@ -448,7 +460,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 224171726545145999, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
   m_PrefabInstance: {fileID: 1898152011}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2062014716
+--- !u!114 &2062014720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,17 +469,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2062014712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca1652e5232ecc49995d719493e95f2, type: 3}
+  m_Script: {fileID: 11500000, guid: c77236a0947d60e4aa0235280cb4efc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidTexture: {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
-  randLength: 0
-  randWidth: 0
-  randHeight: 0
-  octantX: 0
-  octantY: 0
-  octantZ: 0
-  moduleX: 0
-  moduleY: 0
-  moduleZ: 0
-  test: {x: 0, y: 0, z: 0}
+  debrisTexture: {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
+  number: 2000
+  coreLowerBound: 3
+  coreUpperBound: 30
+  moduleLowerBound: 0.25
+  moduleUpperBound: 0.75
+  concentrationScaler: 6.5
