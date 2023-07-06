@@ -80,14 +80,13 @@ public class DebrisGenerator : MonoBehaviour
                 debrisModule.transform.localScale = new Vector3(Random.Range(2f * moduleX, 3f * moduleX), Random.Range(2f * moduleY, 3f * moduleY), Random.Range(2f * moduleZ, 3f * moduleZ));
 
                 // setting up module collider
-
                 BoxCollider collider = debrisModule.GetComponent<BoxCollider>();
-                collider.size = debrisModule.transform.localScale;
+                collider.size = new Vector3(1.2f, 1.2f, 1.2f);
             }
 
             // randomized position, scaling, and rotation applied to the debris
             debrisCore.transform.localScale = new Vector3(randScaler, randScaler, randScaler);
-            debrisCore.transform.position = new Vector3(Random.Range(0, 1000), Random.Range(0, 600), Random.Range(0, 1500));
+            debrisCore.transform.position = new Vector3(Random.Range(-2000, 2000), Random.Range(-2000, 2000), Random.Range(-2000, 2000));
             debrisCore.transform.Rotate(Random.Range(0, 179), Random.Range(0, 179), Random.Range(0, 179));
         }
     }

@@ -307,9 +307,37 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: inputModeConfig
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: rollSpeedConfig
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: pitchSpeedConfig
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: throttleSpeedConfig
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: rollAccelerationConfig
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416218949866777, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: throttleAccelerationConfig
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
@@ -473,9 +501,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debrisTexture: {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
-  number: 2000
-  coreLowerBound: 3
-  coreUpperBound: 30
+  number: 10000
+  coreLowerBound: 4
+  coreUpperBound: 80
   moduleLowerBound: 0.25
   moduleUpperBound: 0.75
-  concentrationScaler: 6.5
+  concentrationScaler: 4
