@@ -51,6 +51,7 @@ MonoBehaviour:
   invertedMouse: -1
   mouseLook: 80
   throttleSpeed: 125
+  speedBoost: 100
   pitchSpeed: 35
   yawSpeed: 20
   rollSpeed: 100

@@ -14,19 +14,18 @@ public class FOVController : MonoBehaviour
     [SerializeField] private float fullSpeedFOV;
     [SerializeField] private float restingFOV;
 
-
+    public void setFullSpeedFOV(float increment) => fullSpeedFOV += increment;
 
     void Start()
     {
         // obtain camera and ship data
-        shipCamera = shipView.GetComponent<Camera>();
         shipStats = GetComponent<ShipStats>();
+        shipCamera = shipView.GetComponent<Camera>();
     }
 
     void Update()
     {
         // FOV lerps toward upper bound on 'W' and toward lower bound otherwise by the throttle acceleration, scaled to achieve a nice effect
         shipCamera.fieldOfView = Input.GetKey(KeyCode.W) ? Mathf.Lerp(shipCamera.fieldOfView, fullSpeedFOV, 3f * shipStats.getThrottleAcceleration() * Time.deltaTime) : Mathf.Lerp(shipCamera.fieldOfView, restingFOV, 5f * shipStats.getThrottleAcceleration() * Time.deltaTime);
-        Debug.Log("FOV: " + shipCamera.fieldOfView);
-    }
+    } 
 }

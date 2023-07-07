@@ -138,7 +138,8 @@ MonoBehaviour:
   inputModeConfig: 1
   invertedMouseConfig: -1
   mouseLookConfig: 80
-  throttleSpeedConfig: 160
+  throttleSpeedConfig: 125
+  speedBoostConfig: 45
   pitchSpeedConfig: 50
   yawSpeedConfig: 20
   rollSpeedConfig: 130

@@ -18,6 +18,7 @@ public class FlightControls : MonoBehaviour
 
     [Header("Input Speeds")] // player movement sensitivities
     [SerializeField] private float throttleSpeed;
+    [SerializeField] private float speedBoost;
     [SerializeField] private float pitchSpeed;
     [SerializeField] private float yawSpeed;
     [SerializeField] private float rollSpeed;
@@ -40,6 +41,7 @@ public class FlightControls : MonoBehaviour
         invertedMouse = shipStats.getInvertedMouse();
         mouseLook = shipStats.getMouseLook();
         throttleSpeed = shipStats.getThrottleSpeed();
+        speedBoost = shipStats.getSpeedBoost();
         pitchSpeed = shipStats.getPitchSpeed();
         yawSpeed = shipStats.getYawSpeed();
         rollSpeed = shipStats.getRollSpeed();
@@ -53,6 +55,10 @@ public class FlightControls : MonoBehaviour
 
     void Update()
     {
+        // speed boost activation
+        if (Input.GetKeyDown(KeyCode.Space))
+            StartCoroutine(SpeedBoost());
+
         // calculate throttle as a lerp between current throttle magnitude and the target throttle input, over the throttle acceleration by frame
         throttleIn = Mathf.Lerp(throttleIn, Input.GetAxisRaw("Throttle") * throttleSpeed, throttleAcceleration * Time.deltaTime) >= 0 ? Mathf.Lerp(throttleIn, Input.GetAxisRaw("Throttle") * throttleSpeed, throttleAcceleration * Time.deltaTime) : 0f;
 
@@ -83,5 +89,23 @@ public class FlightControls : MonoBehaviour
         // rotate and translate the ship at the corresponding speed by frame
         shipBuild.transform.Rotate(invertedMouse * mouseIn.y * pitchSpeed * Time.deltaTime, mouseIn.x * yawSpeed * Time.deltaTime, rollIn * Time.deltaTime, Space.Self);
         shipBuild.transform.position += shipBuild.transform.forward * throttleIn * Time.deltaTime;
+    }
+
+    // adds speed boost to the default throttle upper bound for the ship
+    IEnumerator SpeedBoost()
+    {
+        // increase FOV, throttle upper bound, and acceleration
+        shipBuild.GetComponent<FOVController>().setFullSpeedFOV(20f);
+        throttleSpeed += speedBoost;
+        throttleAcceleration += 2f;
+        
+        //finish reversion section of this script
+        yield return new WaitForSeconds(6f);
+        
+        // revert settings
+        throttleSpeed -= speedBoost;
+        throttleAcceleration -= 2f;
+        shipBuild.GetComponent<FOVController>().setFullSpeedFOV(-20f);
+        throttleIn = 125f; // throttleIn lerps to this value, so reverting to this max speed is important as well
     }
 }
