@@ -86,7 +86,7 @@ public class DebrisGenerator : MonoBehaviour
 
             // randomized position, scaling, and rotation applied to the debris
             debrisCore.transform.localScale = new Vector3(randScaler, randScaler, randScaler);
-            debrisCore.transform.position = new Vector3(Random.Range(-2000, 2000), Random.Range(-2000, 2000), Random.Range(-2000, 2000));
+            debrisCore.transform.position = new Vector3(Random.Range(0, 600), Random.Range(0, 600), Random.Range(0, 600));
             debrisCore.transform.Rotate(Random.Range(0, 179), Random.Range(0, 179), Random.Range(0, 179));
         }
     }

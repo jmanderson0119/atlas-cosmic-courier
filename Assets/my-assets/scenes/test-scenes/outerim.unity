@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!20 &898881187 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+  m_PrefabInstance: {fileID: 958658336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &948816829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6179146495880198980, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6179146495880198980, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
       propertyPath: m_AnchorMax.x
@@ -233,17 +238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
---- !u!114 &948816830 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2590160047497868281, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
-  m_PrefabInstance: {fileID: 948816829}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &958658336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 4437552298817687761, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: field of view
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: far clip plane
@@ -414,7 +412,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1898152011
+--- !u!1 &1164949287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1070652330409769355, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+  m_PrefabInstance: {fileID: 958658336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1910218809
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -423,7 +426,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 224171726545145993, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224171726545145993, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -465,14 +468,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224171726545145998, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
-      propertyPath: format
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224171726545145998, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
-      propertyPath: timerGUI
-      value: 
-      objectReference: {fileID: 948816830}
     - target: {fileID: 224171726545145999, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
       propertyPath: m_Name
       value: scene-manager
@@ -481,29 +476,25 @@ PrefabInstance:
       propertyPath: shipBuild
       value: 
       objectReference: {fileID: 958658337}
+    - target: {fileID: 4429037679123984846, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 958658337}
+    - target: {fileID: 4429037679123984846, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: shipView
+      value: 
+      objectReference: {fileID: 1164949287}
+    - target: {fileID: 4429037679123984846, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429037679123984846, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: shipCamera
+      value: 
+      objectReference: {fileID: 898881187}
+    - target: {fileID: 5918277927722788641, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: concentrationScaler
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
---- !u!1 &2062014712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 224171726545145999, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
-  m_PrefabInstance: {fileID: 1898152011}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2062014720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062014712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77236a0947d60e4aa0235280cb4efc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debrisTexture: {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
-  number: 10000
-  coreLowerBound: 4
-  coreUpperBound: 80
-  moduleLowerBound: 0.25
-  moduleUpperBound: 0.75
-  concentrationScaler: 4

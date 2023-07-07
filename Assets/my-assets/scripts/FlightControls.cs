@@ -54,7 +54,7 @@ public class FlightControls : MonoBehaviour
     void Update()
     {
         // calculate throttle as a lerp between current throttle magnitude and the target throttle input, over the throttle acceleration by frame
-        throttleIn = Mathf.Lerp(throttleIn, Input.GetAxisRaw("Throttle") * throttleSpeed, throttleAcceleration * Time.deltaTime);
+        throttleIn = Mathf.Lerp(throttleIn, Input.GetAxisRaw("Throttle") * throttleSpeed, throttleAcceleration * Time.deltaTime) >= 0 ? Mathf.Lerp(throttleIn, Input.GetAxisRaw("Throttle") * throttleSpeed, throttleAcceleration * Time.deltaTime) : 0f;
 
         // calculate pitch and yaw accoring to player preferences
         if (inputMode == InputMode.FlightSim)

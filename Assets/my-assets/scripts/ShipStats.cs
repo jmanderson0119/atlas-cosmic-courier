@@ -5,16 +5,6 @@ using UnityEngine;
 // Stores ship configuration settings for the default ship option
 public class ShipStats : MonoBehaviour
 {
-    /*
-     * FlightSim
-     * 75
-     * 150
-     * 40
-     * 30
-     * 110
-     * 0.8
-     * 3.5
-     */
     [Header("Input Mode")] // mouse "snap to center" sensitivity
     [SerializeField] private InputMode inputModeConfig;
     [SerializeField] private float invertedMouseConfig;

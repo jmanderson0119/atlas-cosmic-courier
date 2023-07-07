@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224171726545145993}
-  - component: {fileID: 224171726545145998}
   - component: {fileID: 3137058450393067324}
+  - component: {fileID: 5918277927722788641}
+  - component: {fileID: 224171726545145998}
   m_Layer: 0
   m_Name: scene-manager
   m_TagString: Untagged
@@ -33,25 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &224171726545145998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224171726545145999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bcb6a2d31503904897652d66d7f9356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerGUI: {fileID: 0}
-  currentTime: 0
-  countDown: 0
-  hasLimit: 0
-  timeLimit: 0
-  hasFormat: 1
-  format: 0
 --- !u!114 &3137058450393067324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,15 +46,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88593ed585320ae4db755b87b2bc2119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipBuild: {fileID: 0}
-  inputMode: 0
-  mouseLook: 0
-  throttleSpeed: 0
-  pitchSpeed: 0
-  yawSpeed: 0
-  rollSpeed: 0
-  throttleAcceleration: 0
-  rollAcceleration: 0
+  shipBuild: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+  inputMode: 1
+  invertedMouse: -1
+  mouseLook: 80
+  throttleSpeed: 125
+  pitchSpeed: 35
+  yawSpeed: 20
+  rollSpeed: 100
+  throttleAcceleration: 0.3
+  rollAcceleration: 2
   throttleIn: 0
   rollIn: 0
   mouseIn: {x: 0, y: 0}
+--- !u!114 &5918277927722788641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224171726545145999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77236a0947d60e4aa0235280cb4efc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisTexture: {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
+  number: 600
+  coreLowerBound: 3
+  coreUpperBound: 30
+  moduleLowerBound: 0.25
+  moduleUpperBound: 0.75
+  concentrationScaler: 8.5
+--- !u!114 &224171726545145998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224171726545145999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcb6a2d31503904897652d66d7f9356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerGUI: {fileID: 7083597719086477851, guid: 28eaf7f989d86cc47818fe44a1a82270, type: 3}
+  currentTime: 0
+  countDown: 0
+  hasLimit: 0
+  timeLimit: 0
+  hasFormat: 1
+  format: 2
