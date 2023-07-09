@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3137058450393067324}
   - component: {fileID: 5918277927722788641}
   - component: {fileID: 224171726545145998}
+  - component: {fileID: 6748039604070638021}
+  - component: {fileID: 9167627652396357022}
   m_Layer: 0
   m_Name: scene-manager
   m_TagString: Untagged
@@ -98,3 +100,33 @@ MonoBehaviour:
   timeLimit: 0
   hasFormat: 1
   format: 2
+--- !u!114 &6748039604070638021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224171726545145999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ac8c8e011f8bf4dbab6f0e7310a4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  pools:
+  - tag: debris-s001
+    prefab: {fileID: 15203526828807041, guid: fec1bc9c26230de4dbfc7d0f144783fc, type: 3}
+    size: 10
+--- !u!114 &9167627652396357022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224171726545145999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed44b8dd67e982498f18c2f19427458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flightData: {fileID: 0}

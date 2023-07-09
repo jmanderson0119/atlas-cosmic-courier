@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: far clip plane
-      value: 300
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5305348114598937182, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: near clip plane
@@ -516,8 +516,71 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 898881187}
     - target: {fileID: 5918277927722788641, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918277927722788641, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
       propertyPath: concentrationScaler
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 958658337}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[0].tag
+      value: debris-m002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[1].tag
+      value: debris-xl006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[1].size
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 6815174146200071226, guid: 63852f3e1ddf7804ea107b1862281099, type: 3}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 3136572972107739357, guid: 088ad757ffb11404793c58e49d7a52e2, type: 3}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[0].identifier
+      value: debris-m002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748039604070638021, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: pools.Array.data[1].identifier
+      value: debri-xl006
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167627652396357022, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 958658337}
+    - target: {fileID: 9167627652396357022, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+      propertyPath: flightData
+      value: 
+      objectReference: {fileID: 1910218814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+--- !u!114 &1910218814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3137058450393067324, guid: 4dfdcdf7647543c419bb17b6764ac1e6, type: 3}
+  m_PrefabInstance: {fileID: 1910218809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88593ed585320ae4db755b87b2bc2119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

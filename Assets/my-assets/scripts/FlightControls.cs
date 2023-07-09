@@ -33,6 +33,8 @@ public class FlightControls : MonoBehaviour
     [SerializeField] private Vector2 mouseIn;
     private Vector2 lookIn; // mouse input relative to the screen center
 
+    public float getThrottleIn() => throttleIn;
+
     void Start()
     { 
         ShipStats shipStats = shipBuild.GetComponent<ShipStats>();
