@@ -34,16 +34,18 @@ public class LevelTimer : MonoBehaviour
         timeFormats.Add(TimeFormats.Whole, "{0:00}:{1:00}");
         timeFormats.Add(TimeFormats.Tenth, "{0:00}:{1:00.0}");
         timeFormats.Add(TimeFormats.Hundredth, "{0:00}:{1:00.00}");
-
+        
+        // centers timer based on format
         switch (format)
         {
             case TimeFormats.Whole:
-                timerGUI.transform.position += new Vector3(60f, 0f, 0f);
+                timerGUI.transform.position += new Vector3(10f, 0f, 0f);
                 break;
             case TimeFormats.Tenth:
-                timerGUI.transform.position += new Vector3(30f, 0f, 0f);
+                timerGUI.transform.position += new Vector3(5f, 0f, 0f);
                 break;
         }
+        
     }
         
     // Update is called once per frame

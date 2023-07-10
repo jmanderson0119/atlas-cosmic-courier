@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5911711158133789424}
   - component: {fileID: 1313728659753841066}
   m_Layer: 0
-  m_Name: debri-xl006
+  m_Name: debris-xl006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

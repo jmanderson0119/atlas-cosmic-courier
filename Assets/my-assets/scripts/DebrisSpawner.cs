@@ -1,98 +1,27 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// accesses spawn(); see ObjectPooler. Debris will be spawned in pairs so long as the thorttle achieves a certain threshold
 public class DebrisSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject ship;
-    [SerializeField] private FlightControls flightData;
-    private ObjectPooler debrisPools;
+    [SerializeField] private FlightControls flightData; // for accessing flight readout data
+    private ObjectPooler debrisPools; // for accessing spawn() instance function through singleton
 
 
     // Start is called before the first frame update
     void Start()
     {
-        debrisPools = ObjectPooler.Instance;
+        debrisPools = ObjectPooler.Instance; // initialize with singleton 
     }
 
     // Update is called once per frame
     void Update()
     {
+        // quick note: going to change the spawning requisite soon to improve behavior
         if (flightData.getThrottleIn() >= 20f)
         {
-            string[] excludedIdentifiers = GetVisibleIdentifiers();
-            debrisPools.spawn(excludedIdentifiers);
+            debrisPools.spawn(2);
         }
-    }
-
-    private string[] GetVisibleIdentifiers()
-    {
-        List<string> visibleIdentifiers = new List<string>();
-
-        RaycastHit[] hits = Physics.SphereCastAll(ship.transform.position, 1000f, ship.transform.forward);
-
-        foreach (RaycastHit hit in hits)
-        {
-            GameObject hitObject = hit.collider.gameObject;
-            ObjectPooler.Pool pool = hitObject.GetComponentInParent<ObjectPooler.Pool>();
-
-            if (pool != null &&  !visibleIdentifiers.Contains(pool.identifier))
-            {
-                visibleIdentifiers.Add(pool.identifier);
-                pool.isVisible = true;
-            }
-        }
-
-        return visibleIdentifiers.ToArray();
     }
 }
-*/
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DebrisSpawner : MonoBehaviour
-{
-    [SerializeField] private GameObject ship;
-    [SerializeField] private FlightControls flightData;
-    private ObjectPooler debrisPools;
-
-    void Start()
-    {
-        debrisPools = ObjectPooler.Instance;
-    }
-
-    void Update()
-    {
-        if (flightData.getThrottleIn() >= 20f)
-        {
-            string[] excludedTags = GetVisibleTags();
-            debrisPools.Spawn(excludedTags);
-        }
-    }
-
-    private string[] GetVisibleTags()
-    {
-        List<string> visibleTags = new List<string>();
-
-        RaycastHit[] hits = Physics.SphereCastAll(ship.transform.position, 1000f, ship.transform.forward);
-
-        foreach (RaycastHit hit in hits)
-        {
-            GameObject hitObject = hit.collider.gameObject;
-            ObjectPooler.Pool pool = debrisPools.GetParentPoolComponent(hitObject);
-
-            if (pool != null && !visibleTags.Contains(pool.tag))
-            {
-                visibleTags.Add(pool.tag);
-                pool.isVisible = true;
-            }
-        }
-
-        return visibleTags.ToArray();
-    }
-}
-
-
-
