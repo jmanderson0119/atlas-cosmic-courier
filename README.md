@@ -43,6 +43,3 @@ Contributions to this repository are always welcome! If you'd like to contribute
 ## Contact
 
 If you have any questions, suggestions, or feedback, please reach out at [jma195@case.edu](mailto:jma195@case.edu)
-
-
-**Thank you for visiting, and enjoy your mission <3**
