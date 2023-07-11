@@ -8,6 +8,7 @@ public class ObjectPooler : MonoBehaviour
     [SerializeField] private GameObject ship; // needed for accessing positional data
     [SerializeField] private List<Pool> pools; // collection of pools for config within Unity inspector
     private Dictionary<string, Queue<GameObject>> poolDictionary; // referencing for all pools by their ID
+    private bool inHistory = false; // for activating/deactivating spawn based on location
     public static ObjectPooler Instance; // singleton, used for accessing spawn()
 
     [System.Serializable] // configuration data for all pools: name, debris object, and number of this debris that may be spawned at once
@@ -17,6 +18,8 @@ public class ObjectPooler : MonoBehaviour
         public GameObject prefab;
         public int size;
     }
+
+    public void setInHistory(bool inHistory) => this.inHistory = inHistory;
 
     // initialize singleton
     private void Awake()
@@ -51,18 +54,21 @@ public class ObjectPooler : MonoBehaviour
     // will choose a random pool, dequeue an object, set active, then randomly position and rotate within the scene; enqueued for future use.
     public void spawn(int spawnNum)
     {
-        // spawns as many as desire per frame; I chose two because I liked the frequency of generation achieved
-        for (int i = 0; i < spawnNum; i++)
+        if (!inHistory)
         {
-            Pool randomPool = pools[Random.Range(0, pools.Count)]; // select random pool
-            GameObject spawnedObject = poolDictionary[randomPool.identifier].Dequeue(); // dequeue object
+            // spawns as many as desire per frame; I chose three because I liked the frequency of generation achieved
+            for (int i = 0; i < spawnNum; i++)
+            {
+                Pool randomPool = pools[Random.Range(0, pools.Count)]; // select random pool
+                GameObject spawnedObject = poolDictionary[randomPool.identifier].Dequeue(); // dequeue object
 
-            spawnedObject.SetActive(true); // "instantiate"
+                spawnedObject.SetActive(true); // "instantiate"
 
-            spawnedObject.transform.position = Random.onUnitSphere.normalized * 1500 + ship.transform.position + ship.transform.forward * 350f; // random position
-            spawnedObject.transform.Rotate(Random.Range(0, 179), Random.Range(0, 179), Random.Range(0, 179)); // random rotation
+                spawnedObject.transform.position = Random.onUnitSphere.normalized * 1500 + ship.transform.position + ship.transform.forward * 350f; // random position
+                spawnedObject.transform.Rotate(Random.Range(0, 179), Random.Range(0, 179), Random.Range(0, 179)); // random rotation
 
-            poolDictionary[randomPool.identifier].Enqueue(spawnedObject); // place back it queue for future "instantiation"
+                poolDictionary[randomPool.identifier].Enqueue(spawnedObject); // place back it queue for future "instantiation"
+            }
         }
     }
 }
