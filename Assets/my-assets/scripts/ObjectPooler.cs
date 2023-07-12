@@ -64,7 +64,7 @@ public class ObjectPooler : MonoBehaviour
 
                 spawnedObject.SetActive(true); // "instantiate"
 
-                spawnedObject.transform.position = Random.onUnitSphere.normalized * 1500 + ship.transform.position + ship.transform.forward * 350f; // random position
+                spawnedObject.transform.position = Random.onUnitSphere.normalized * 2800 + ship.transform.position; // random position
                 spawnedObject.transform.Rotate(Random.Range(0, 179), Random.Range(0, 179), Random.Range(0, 179)); // random rotation
 
                 poolDictionary[randomPool.identifier].Enqueue(spawnedObject); // place back it queue for future "instantiation"

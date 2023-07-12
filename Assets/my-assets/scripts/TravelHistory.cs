@@ -27,8 +27,7 @@ public class TravelHistory : MonoBehaviour
         {
             historyPack = Instantiate(historyPrefab);
             StartCoroutine(setHistoryAsActiveTrigger());
-            //historyPack.GetComponent<Collider>().isTrigger = true;
-            historyPack.transform.position = ship.transform.position - ship.transform.forward * 750f;
+            historyPack.transform.position = ship.transform.position - transform.forward * 1500f;
 
             historyArchive.Enqueue(historyPack);
         }
@@ -36,14 +35,13 @@ public class TravelHistory : MonoBehaviour
 
     void deleteHistory()
     {
-        Destroy(historyArchive.Dequeue());
+        if (historyArchive.Count != 0)
+            Destroy(historyArchive.Dequeue());
     }
 
     IEnumerator setHistoryAsActiveTrigger()
     {
-        Debug.Log("Set Active Trigger accessed.");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7.8f);
         historyPack.GetComponent<Collider>().isTrigger = true;
-        Debug.Log(historyArchive.Peek().GetComponent<Collider>().isTrigger);
     }
 }

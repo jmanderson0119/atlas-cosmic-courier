@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &305112892593963291
+--- !u!1 &8590663680409847524
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 305112892593963293}
-  - component: {fileID: 3219654245813632680}
-  - component: {fileID: 305112892593963290}
-  - component: {fileID: 6521856798137888849}
-  - component: {fileID: 8655466272542049290}
-  - component: {fileID: 4425767348700287502}
+  - component: {fileID: 8590663680409847522}
+  - component: {fileID: 6894258891905169751}
+  - component: {fileID: 8590663680409847525}
+  - component: {fileID: 2990842743680464814}
+  - component: {fileID: 800995468135302133}
+  - component: {fileID: 5649953067216721393}
   m_Layer: 0
   m_Name: scene-manager
   m_TagString: Untagged
@@ -21,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &305112892593963293
+--- !u!4 &8590663680409847522
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 10, y: 71.909164, z: 13.344086}
   m_LocalScale: {x: 10, y: 1, z: 1}
@@ -36,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
---- !u!114 &3219654245813632680
+--- !u!114 &6894258891905169751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88593ed585320ae4db755b87b2bc2119, type: 3}
@@ -62,13 +62,13 @@ MonoBehaviour:
   throttleIn: 0
   rollIn: 0
   mouseIn: {x: 0, y: 0}
---- !u!114 &305112892593963290
+--- !u!114 &8590663680409847525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bcb6a2d31503904897652d66d7f9356, type: 3}
@@ -81,13 +81,13 @@ MonoBehaviour:
   timeLimit: 0
   hasFormat: 1
   format: 2
---- !u!114 &6521856798137888849
+--- !u!114 &2990842743680464814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6ac8c8e011f8bf4dbab6f0e7310a4c8, type: 3}
@@ -97,325 +97,336 @@ MonoBehaviour:
   pools:
   - identifier: debris-s001
     prefab: {fileID: 3059009269943808742, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s002
     prefab: {fileID: 663106261954973534, guid: c5865cfaca9d5374b824a9b73ead6b2e, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s003
     prefab: {fileID: 1724877248646126646, guid: 4105aae06583c3449b427b0a2d18457d, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s004
     prefab: {fileID: 5305087585615061941, guid: 59c84d3ce8b42814799c3fcfc8e5545c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s005
     prefab: {fileID: 3528751756938346443, guid: 69a8fb1f83425b741b568331601ac1d3, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s006
     prefab: {fileID: 19140235954164180, guid: 7fb054db0b7f1d345875b3b0ae9269b6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s007
     prefab: {fileID: 3183983530482712160, guid: 7992bed16cf75014e97b96ec90fff67a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s008
     prefab: {fileID: 276280875578547448, guid: 1e28bc2e7a3b5174aaa8b0e27c9afd85, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s009
     prefab: {fileID: 3335485678483388659, guid: 5f329a283a7188f499df0f945242cf4a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s010
     prefab: {fileID: 3528935284519233783, guid: e5a96011f3bde434e9022b207c840fbe, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s011
     prefab: {fileID: 1766865722565986843, guid: 60ad0534c8800514abf1d6d285b51f8c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s012
     prefab: {fileID: 9039476692256561772, guid: 247a0d59f2fceda45be70fdda5e12234, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s013
     prefab: {fileID: 6427867733861075644, guid: 643bb469ed4922e4eac2425da8abe62b, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s014
     prefab: {fileID: 5402314484811389733, guid: 774575dc023778245a5b5c77482dc6f2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s015
     prefab: {fileID: 8649048567150735966, guid: 0e65ebca3b9229a44a6840c67869def2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s016
     prefab: {fileID: 4787492205098272909, guid: f09fdba2a557e7049bfca2cb379cc907, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s017
     prefab: {fileID: 1798996942374329208, guid: 825adc737d2be734cbde7786a74ef05e, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s018
     prefab: {fileID: 9202415868560046155, guid: 681508bfaa1add844ae4549291a62e95, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s019
     prefab: {fileID: 2482783186033985212, guid: 04955bcfe33a11740972b59ac0de0ae2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s020
     prefab: {fileID: 6810529687546658008, guid: 7c063ecd5dab23f478ca492f40b9d842, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s021
     prefab: {fileID: 8054701875452577253, guid: 555e380599ebd274eac2d06fbf6e16ef, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s022
     prefab: {fileID: 742824007490804159, guid: d549386f20fc3c242aa37365959047b2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s023
     prefab: {fileID: 2359491569744180695, guid: b352c4d6d95be4e418f57223ef7e0cf0, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s024
     prefab: {fileID: 8777545233923183545, guid: 1afe8df16951d814c9921a9738c44739, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-s025
     prefab: {fileID: 8988098008421421673, guid: b558780409ca37a4dad4425231288f7a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m001
     prefab: {fileID: 8407989965023380157, guid: 8ba815979c6c5d942a0646dceb5c04c1, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m002
     prefab: {fileID: 7686133599803956203, guid: d14f2c26c55655b4eb6a6f2710eaa858, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m003
     prefab: {fileID: 1954720179875979630, guid: 710ff621b81408f4194b10841995193a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m004
     prefab: {fileID: 4965649110575943082, guid: 1bc811d042e08ad4ea2a0653d1345367, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m005
     prefab: {fileID: 4040322732699171319, guid: 93657e0ba00ea1944ba89ed96e4a327c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m006
     prefab: {fileID: 3834010702003544067, guid: 57bf1fa330c926543abba8a27587d2e6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m007
     prefab: {fileID: 5874858231735235129, guid: b0fb1d3f8e514ce44a48c9485d431c99, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m008
     prefab: {fileID: 9190035493061317686, guid: 20fec00d88c547e4582fec02ba11eaa6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m009
     prefab: {fileID: 2130860573239784420, guid: 19b802fd4d897a64eb49e7ae20fa6169, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m010
     prefab: {fileID: 1783013041883579769, guid: cba0eb2ad18a29c448f86d1264612ea6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m011
     prefab: {fileID: 4435600829166781674, guid: f3f607a08b3338e46b5622154ab9dc50, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m012
     prefab: {fileID: 5922836151116963845, guid: d470b939957ebee4c999a6951c4c8b41, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m013
     prefab: {fileID: 9091377759147711469, guid: 3173ff5c6462c1c44bfe9707ed19a1b7, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m014
     prefab: {fileID: 1568701127535628410, guid: ade06a45df98c7f4183347fd4c93ccec, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m015
     prefab: {fileID: 5225847254819146457, guid: 778df530bf4687a41b383669da55925c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m016
     prefab: {fileID: 6897167566430613458, guid: d545429a99b74404fae9fa0edc5dd0cc, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m017
     prefab: {fileID: 7530028827175505678, guid: ad26f277f9847de4fb7680bfbef8c5f7, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m018
     prefab: {fileID: 7646643832525911395, guid: ef35b658e7677584387f7984534c9c6e, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m019
     prefab: {fileID: 3934580014825692302, guid: 0e6af2e0236919b438e0dcd1980be9c1, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m020
     prefab: {fileID: 5149546498200325542, guid: 636de6a877df05f4a8ba9fc9e899ae8c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m021
     prefab: {fileID: 2778631072172792962, guid: 57360956f7ca0f246a181799da1cabf8, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m022
     prefab: {fileID: 1947116292999120439, guid: 331fa7621282d82428c8321b39cdd961, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m023
     prefab: {fileID: 2611174944808908261, guid: 2c80e0efb04cf2e40a09d8fbbdd11b4f, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m024
     prefab: {fileID: 7106604293278166178, guid: 6275eeceee3f48c4996f27c55311d658, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-m025
     prefab: {fileID: 1303990980497474658, guid: ba134891bf1e9cc459bed2d0c0bcd96d, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l001
     prefab: {fileID: 5492143632663166666, guid: b39fe6392f34ad848aa0348184b9c8e7, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l002
     prefab: {fileID: 8089749642683691764, guid: 4905707d8e830d843af30e79d54ae159, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l003
     prefab: {fileID: 3866589037928067419, guid: f9233e3f2cec2a444813a982ba02b137, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l004
     prefab: {fileID: 3053835290081719657, guid: 619acc7a753a67543abc92f9b0b40cbb, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l005
     prefab: {fileID: 1798840657783767517, guid: ac40b41a3f1efd741801ea88d36b6af5, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l006
     prefab: {fileID: 668143195563034990, guid: ba9dcde58ff603d4fb2d073a95b84eb9, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l007
     prefab: {fileID: 7051880653645353449, guid: 54ad2fd83d96c4d49b50eadecf8fbf05, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l008
     prefab: {fileID: 5073985229410027482, guid: 02ca47596b3c73b4aa14e1bbf8e1d39a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l009
     prefab: {fileID: 9149242980635347046, guid: 46533c73a8ee7b54bb182bbc14e7210b, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l010
     prefab: {fileID: 5599244981660301382, guid: e33478d4a22236d40bcf92def5143a00, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l011
     prefab: {fileID: 5785751375015041678, guid: bb8ec8f55e123614fa533f0dd9998c5f, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l012
     prefab: {fileID: 4683879385930903229, guid: 985e12c2c36e76344a336a5e408c10f6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l013
     prefab: {fileID: 7798747670020605362, guid: c0ca4e1fd707b7a439d78e134157bb8b, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l014
     prefab: {fileID: 2553193690653231892, guid: e3ca5a3ed2165bd40b38ed27e592cb1b, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l015
     prefab: {fileID: 7004967270481801184, guid: 13fe84790de323f4792ff2b5b8d18bd5, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l016
     prefab: {fileID: 4295168041999462333, guid: d9bc1ae0d0e276a41a1e90a3f56f8cf6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l017
     prefab: {fileID: 1989331982161846214, guid: b720a86495ae93549a2a293bdeb009ea, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l018
     prefab: {fileID: 378685388361526409, guid: 4a9a3655b0ef9784f9ac917d34dfbed0, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l019
     prefab: {fileID: 9219148107982000317, guid: 1594e05bd0b1ae14090c03b1a00efa6f, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l020
     prefab: {fileID: 8326838834198096257, guid: 118dc7106e1647049a9252fff13e76ca, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l021
     prefab: {fileID: 1349522557690830688, guid: be091b56b81f2744b9f26e49c7eaeff1, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l022
     prefab: {fileID: 7682229935567945887, guid: b04bf59a298e9e74399b969b91e65ec6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l023
     prefab: {fileID: 5525593038453042952, guid: 0dbce1faf1c1cc848b400988be83e379, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l024
     prefab: {fileID: 5491337977335988149, guid: e2f477c158c9e5d44bd3e3f33fd53458, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-l025
     prefab: {fileID: 4328002929781754115, guid: 356a48fc0adbcd24f8ad4b18a2215497, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl001
     prefab: {fileID: 6780381653268259316, guid: 689ccc44d99ac244ca92fbf490162e2a, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl002
     prefab: {fileID: 7863815284833992921, guid: 3b07a7e0f3174d045b411976862b73b4, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl003
     prefab: {fileID: 8803110868443703197, guid: 8b5c49088c7f85e499e72b738328c24e, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl004
     prefab: {fileID: 6111686145551471919, guid: 221bd8006ca26a841a946a2e31237a7c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl005
     prefab: {fileID: 3177321773307616451, guid: 43ec3e24a2d57b743a3b3e843aac6c02, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl006
     prefab: {fileID: 490724004903908197, guid: d529c62f52e854f4a9a25734a1d11ae2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl007
     prefab: {fileID: 954311884571503174, guid: 96d2851250a64704d96d088fc8cc2278, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl008
     prefab: {fileID: 8088970716227741720, guid: e0b424c02a7119244bdb41487c6b2534, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl009
     prefab: {fileID: 2763786986027296716, guid: 0e4ac1659833b1344bd2f68cdffb30f6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl010
     prefab: {fileID: 7509073558263428935, guid: 0f37f428d0e63d1429e7dc5d997bafce, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl011
     prefab: {fileID: 2081242659715656757, guid: cae052d4368b2634798d36ba04f4b9ea, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl012
     prefab: {fileID: 6953227278219101738, guid: d3876bf7032240d4f9502e35fdf10cce, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl013
     prefab: {fileID: 1839072373064147359, guid: 0ac191c5dfec8e844a847c40d70ad8d2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl014
     prefab: {fileID: 7394708082126005030, guid: a3bb3758f57d67843bd6778e6ca166d0, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl015
     prefab: {fileID: 3039882517765698710, guid: 2a6a25c8cfa6aca4b909355cc7e0f186, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl016
     prefab: {fileID: 3031829724279769669, guid: 401f9e25afda3bf489b8df811dbeeb4c, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl017
     prefab: {fileID: 6572264886849767971, guid: 33ddb8d1ab47af94db750431b72bffa2, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl018
     prefab: {fileID: 3574335594001873224, guid: 2b4e71335d78c944594c4beb15b5fbe6, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl019
     prefab: {fileID: 9071930745228345991, guid: f7495eddfb2e57649a58e0a28ad5933d, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl020
     prefab: {fileID: 6025360877497619914, guid: ceb6a8ae1147d084d8e9369d7ce54b19, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl021
     prefab: {fileID: 8464057806950746522, guid: d784361277c8d1b41befcd781a2a005d, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl022
     prefab: {fileID: 4951690050151392153, guid: 4a1a4c354de08f240bad3b8e1a0edc3e, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl023
     prefab: {fileID: 6615406270319401064, guid: 2e6e0ddbdf75e654f983e8b05e3de751, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl024
     prefab: {fileID: 3476512305313157088, guid: 8eb71e4f58c31c946866c11f10853c70, type: 3}
-    size: 25
+    size: 45
   - identifier: debris-xl025
     prefab: {fileID: 3951230617437394338, guid: 734ad514c59bb4f4ab1d12d3294d09cc, type: 3}
-    size: 25
---- !u!114 &8655466272542049290
+    size: 45
+  materials:
+  - {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
+  - {fileID: 2100000, guid: 2387f47c74a1e0944b069be3e6e7830b, type: 2}
+  - {fileID: 2100000, guid: 324529d8e8e0fc542a2f7a28e7c9fed0, type: 2}
+  - {fileID: 2100000, guid: a6fbb74737f78e14289065dfc941ef15, type: 2}
+  - {fileID: 2100000, guid: d8ac4598e7f8c3e468c9b544d51bc5eb, type: 2}
+  - {fileID: 2100000, guid: 8499836e737dab34fb1c1f5bf9716f50, type: 2}
+  - {fileID: 2100000, guid: b7e14b74634b0ad4193b2bfb0c721887, type: 2}
+  - {fileID: 2100000, guid: 88dbf0baba2d6dd4eb165a5e3f88a033, type: 2}
+  - {fileID: 2100000, guid: ee770fd19f4a6f5459935976db43c4f3, type: 2}
+  - {fileID: 2100000, guid: b7bd225e4dbc75e449af3805660e4c28, type: 2}
+--- !u!114 &800995468135302133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ed44b8dd67e982498f18c2f19427458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
-  flightData: {fileID: 3219654245813632680}
---- !u!114 &4425767348700287502
+  flightData: {fileID: 6894258891905169751}
+--- !u!114 &5649953067216721393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305112892593963291}
+  m_GameObject: {fileID: 8590663680409847524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5a152d3a3bfa3d4fbf1058d8dad8dfb, type: 3}
@@ -423,4 +434,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   historyPrefab: {fileID: 4659374811254308597, guid: 293ceb30970628e4ea20fc95e8a1977c, type: 3}
-  flightData: {fileID: 3219654245813632680}
+  flightData: {fileID: 6894258891905169751}

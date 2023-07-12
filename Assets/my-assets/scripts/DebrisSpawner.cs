@@ -21,7 +21,7 @@ public class DebrisSpawner : MonoBehaviour
         // quick note: going to change the spawning requisite soon to improve behavior
         if (flightData.getThrottleIn() >= 20)
         {
-            debrisPools.spawn(2);
+            debrisPools.spawn(3);
         }
     }
 }
