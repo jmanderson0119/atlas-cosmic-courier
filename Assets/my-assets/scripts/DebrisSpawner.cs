@@ -7,7 +7,6 @@ public class DebrisSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ship; // for determining spawn behavior
     [SerializeField] private FlightControls flightData; // for accessing flight readout data
-    [SerializeField] private GameObject levelObjective; // for determining spawn behavior
     private ObjectPooler debrisPools; // for accessing spawn() instance function through singleton
 
     // Start is called before the first frame update
