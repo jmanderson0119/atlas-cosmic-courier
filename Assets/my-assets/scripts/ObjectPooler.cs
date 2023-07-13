@@ -5,13 +5,16 @@ using UnityEngine;
 // object pool manager for all debris types (see environment-prefabs)
 public class ObjectPooler : MonoBehaviour
 {
+    [Header("Ship + Debris")]
     [SerializeField] private GameObject ship; // needed for accessing positional data
     [SerializeField] private List<Pool> pools; // collection of pools for config within Unity inspector
+
     private Dictionary<string, Queue<GameObject>> poolDictionary; // referencing for all pools by their ID
     private bool inHistory = false; // for activating/deactivating spawn based on location
     public static ObjectPooler Instance; // singleton, used for accessing spawn()
 
-    [System.Serializable] // configuration data for all pools: name, debris object, and number of this debris that may be spawned at once
+    // configuration data for all pools: name, debris object, and number of this debris that may be spawned at once
+    [System.Serializable]
     public class Pool
     {
         public string identifier;
@@ -19,7 +22,7 @@ public class ObjectPooler : MonoBehaviour
         public int size;
     }
 
-    public void setInHistory(bool inHistory) => this.inHistory = inHistory;
+    public void setInHistory(bool inHistory) => this.inHistory = inHistory; // setter for the inHistory bool
 
     // initialize singleton
     private void Awake()

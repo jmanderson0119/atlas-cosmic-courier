@@ -35,10 +35,12 @@ public class FlightControls : MonoBehaviour
 
     public float getThrottleIn() => throttleIn;
 
+    // initialize flight control data using the ship config data
     void Start()
     { 
-        ShipStats shipStats = shipBuild.GetComponent<ShipStats>();
+        ShipStats shipStats = shipBuild.GetComponent<ShipStats>(); // obtaining ship config data
 
+        // initializing ship config data
         inputMode = shipStats.getInputMode();
         invertedMouse = shipStats.getInvertedMouse();
         mouseLook = shipStats.getMouseLook();

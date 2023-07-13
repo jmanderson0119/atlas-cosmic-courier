@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2990842743680464814}
   - component: {fileID: 800995468135302133}
   - component: {fileID: 5649953067216721393}
+  - component: {fileID: 2587952671066559909}
   m_Layer: 0
   m_Name: scene-manager
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8590663680409847524}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 10, y: 71.909164, z: 13.344086}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -395,17 +396,6 @@ MonoBehaviour:
   - identifier: debris-xl025
     prefab: {fileID: 3951230617437394338, guid: 734ad514c59bb4f4ab1d12d3294d09cc, type: 3}
     size: 45
-  materials:
-  - {fileID: 2100000, guid: eabaf72c57f4c434caf368ab7c44629a, type: 2}
-  - {fileID: 2100000, guid: 2387f47c74a1e0944b069be3e6e7830b, type: 2}
-  - {fileID: 2100000, guid: 324529d8e8e0fc542a2f7a28e7c9fed0, type: 2}
-  - {fileID: 2100000, guid: a6fbb74737f78e14289065dfc941ef15, type: 2}
-  - {fileID: 2100000, guid: d8ac4598e7f8c3e468c9b544d51bc5eb, type: 2}
-  - {fileID: 2100000, guid: 8499836e737dab34fb1c1f5bf9716f50, type: 2}
-  - {fileID: 2100000, guid: b7e14b74634b0ad4193b2bfb0c721887, type: 2}
-  - {fileID: 2100000, guid: 88dbf0baba2d6dd4eb165a5e3f88a033, type: 2}
-  - {fileID: 2100000, guid: ee770fd19f4a6f5459935976db43c4f3, type: 2}
-  - {fileID: 2100000, guid: b7bd225e4dbc75e449af3805660e4c28, type: 2}
 --- !u!114 &800995468135302133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,4 +424,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   historyPrefab: {fileID: 4659374811254308597, guid: 293ceb30970628e4ea20fc95e8a1977c, type: 3}
-  flightData: {fileID: 6894258891905169751}
+--- !u!114 &2587952671066559909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590663680409847524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df401a95c0c6c5b40a6eb1b53fbb58df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  playerView: {fileID: 0}
+  debris:
+  - {fileID: 5492143632663166666, guid: b39fe6392f34ad848aa0348184b9c8e7, type: 3}

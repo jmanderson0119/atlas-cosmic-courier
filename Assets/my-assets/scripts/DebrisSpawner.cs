@@ -5,8 +5,12 @@ using UnityEngine;
 // accesses spawn(); see ObjectPooler. Debris will be spawned in pairs so long as the thorttle achieves a certain threshold
 public class DebrisSpawner : MonoBehaviour
 {
+    [Header("Object to Track")]
     [SerializeField] private GameObject ship; // for determining spawn behavior
+
+    [Header("Tracking Data")]
     [SerializeField] private FlightControls flightData; // for accessing flight readout data
+
     private ObjectPooler debrisPools; // for accessing spawn() instance function through singleton
 
     // Start is called before the first frame update
