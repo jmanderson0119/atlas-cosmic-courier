@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6836339908916080927}
   - component: {fileID: 6945873844887602456}
   - component: {fileID: 4164229202796016339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: debris-m005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4040322732699171319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -169.23093, y: -256.75143, z: 4338.1543}
   m_LocalScale: {x: 5.75, y: 5.75, z: 5.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
