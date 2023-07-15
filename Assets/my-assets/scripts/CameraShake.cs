@@ -4,42 +4,47 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField] private GameObject shipCamera;
-    //[SerializeField] private AnimationCurve shakeBehavior;
-    [SerializeField] private float shakeDuration;
+    [Header("Shake Behavior")]
+    [SerializeField] private float duration;
+    [SerializeField] private AnimationCurve magnitude;
+    
+    private float magnitudeEval;
+    private Vector3 originalPosition;
+    private float timeElapsed;
+    private float deltaX;
+    private float deltaY;
 
-    private float currentTime;
-    private float shake;
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        originalPosition = transform.localPosition;
     }
 
-    // Update is called once per frame
-    void OnTriggerEnter(Collider collision)
+    void Update()
     {
-        Debug.Log("Entered");
-        if (collision.gameObject.CompareTag("DebrisCollision"))
-            StartCoroutine(cameraShake());
-    }
-
-    IEnumerator cameraShake()
-    {
-        Debug.Log("Collision at: " + transform.position);
-
-        currentTime = 0f;
-
-        while (currentTime < shakeDuration)
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            currentTime += Time.deltaTime;
-            shake = Random.Range(-1f, 1f);
-            shipCamera.transform.position += new Vector3(shake, shake, 0f);// * shakeBehavior.Evaluate(currentTime);
+            StartCoroutine(shake());
+        }
+    }
+
+    public IEnumerator shake()
+    {
+        timeElapsed = 0f;
+
+        while (timeElapsed < duration)
+        {
+            magnitudeEval = magnitude.Evaluate(timeElapsed);
+
+            deltaX = Random.Range(-1f, 1f) * magnitudeEval;
+            deltaY = Random.Range(-1f, 1f) * magnitudeEval;
+
+            transform.localPosition = new Vector3(deltaX, originalPosition.y + deltaY, originalPosition.z);
+
+            timeElapsed += Time.deltaTime;
+
             yield return null;
         }
 
-        Debug.Log("Reset Camera");
-        shipCamera.transform.position = transform.position + transform.up + transform.forward * -2.4f;
+        transform.localPosition = originalPosition;
     }
 }
