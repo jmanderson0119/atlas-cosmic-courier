@@ -123,80 +123,21 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &168187273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8565332090030073493, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
+  m_PrefabInstance: {fileID: 948816829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &204554507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5105463323653085189, guid: f30eb3e6ccae4e94aa3d37bdd9e15f20, type: 3}
+  m_PrefabInstance: {fileID: 948816829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &317610338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1070652330409769355, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
   m_PrefabInstance: {fileID: 958658336}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &705025527
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3059009269943808742, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_Name
-      value: debris-s001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052717497763282741, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983300391209303535, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983300391209303535, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
 --- !u!1001 &948816829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +259,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261451470414013557, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: m_Mass
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1810303622360870546, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -366,9 +311,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2929605898412557861, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 168187273}
+    - target: {fileID: 2929605898412557861, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: shieldBar
+      value: 
+      objectReference: {fileID: 204554507}
     - target: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_Name
       value: default-ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: m_TagString
+      value: DebrisCollision
       objectReference: {fileID: 0}
     - target: {fileID: 4437552298817687761, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_Drag
@@ -697,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 958658337}
     - target: {fileID: 3356169878079151079, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5649953067216721393, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: ship
@@ -711,6 +668,10 @@ PrefabInstance:
       propertyPath: shipBuild
       value: 
       objectReference: {fileID: 958658337}
+    - target: {fileID: 6894258891905169751, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 317610338}
     - target: {fileID: 8590663680409847522, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: m_RootOrder
       value: 2

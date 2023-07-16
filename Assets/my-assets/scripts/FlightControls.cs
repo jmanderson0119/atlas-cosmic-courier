@@ -7,6 +7,7 @@ public class FlightControls : MonoBehaviour
 {
     [Header("Ship")] // refers to the ship the player is using
     [SerializeField] private GameObject shipBuild;
+    [SerializeField] private GameObject playerCamera;
     private ShipStats shipStats;
 
     [Header("Input Mode")] // FPS/Flight Simulator selection
@@ -32,6 +33,7 @@ public class FlightControls : MonoBehaviour
     [SerializeField] private float rollIn;
     [SerializeField] private Vector2 mouseIn;
     private Vector2 lookIn; // mouse input relative to the screen center
+    private float nextSpeedBoostActive; // next time a speed boost may be used
 
     public float getThrottleIn() => throttleIn;
 
@@ -60,7 +62,7 @@ public class FlightControls : MonoBehaviour
     void Update()
     {
         // speed boost activation
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextSpeedBoostActive)
             StartCoroutine(SpeedBoost());
 
         // calculate throttle as a lerp between current throttle magnitude and the target throttle input, over the throttle acceleration by frame
@@ -98,12 +100,18 @@ public class FlightControls : MonoBehaviour
     // adds speed boost to the default throttle upper bound for the ship
     IEnumerator SpeedBoost()
     {
+        // activate cooldown
+        nextSpeedBoostActive = Time.time + 16f;
+
+        // shakes the camera
+        BoostCameraShake shaker = playerCamera.GetComponent<BoostCameraShake>();
+        StartCoroutine(shaker.boostShake());
+
         // increase FOV, throttle upper bound, and acceleration
         shipBuild.GetComponent<FOVController>().setFullSpeedFOV(20f);
         throttleSpeed += speedBoost;
         throttleAcceleration += 2f;
         
-        //finish reversion section of this script
         yield return new WaitForSeconds(6f);
         
         // revert settings
@@ -111,5 +119,6 @@ public class FlightControls : MonoBehaviour
         throttleAcceleration -= 2f;
         shipBuild.GetComponent<FOVController>().setFullSpeedFOV(-20f);
         throttleIn = 125f; // throttleIn lerps to this value, so reverting to this max speed is important as well
+
     }
 }

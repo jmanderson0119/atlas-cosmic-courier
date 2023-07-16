@@ -2,32 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShake : MonoBehaviour
+public class CollisionCamShake : MonoBehaviour
 {
-    [Header("Shake Behavior")]
+    [Header("Shake Behavior")] // how long and how much
     [SerializeField] private float duration;
     [SerializeField] private AnimationCurve magnitude;
     
-    private float magnitudeEval;
-    private Vector3 originalPosition;
-    private float timeElapsed;
-    private float deltaX;
-    private float deltaY;
+    private float magnitudeEval; // magnitude at a given time
+    private Vector3 originalPosition; // for resetting cam
+    private float timeElapsed; // for tracking for long camera shake has been active
+    private float deltaX; // shake lattitudinally
+    private float deltaY; // shake longitudinally
 
+    // initialization
     void Start()
     {
         originalPosition = transform.localPosition;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            StartCoroutine(shake());
-        }
-    }
-
-    public IEnumerator shake()
+    // offsets the local position of the camera each active frame, then resets the local position back to center
+    public IEnumerator collisionShake()
     {
         timeElapsed = 0f;
 

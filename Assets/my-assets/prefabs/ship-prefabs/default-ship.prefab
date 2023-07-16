@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 1307381988098189492}
   - component: {fileID: 3873156926313782398}
   - component: {fileID: 9144030251778499809}
-  - component: {fileID: 4437552298817687761}
   - component: {fileID: 7332416218949866777}
   - component: {fileID: 62826293681903460}
   - component: {fileID: 7297669312591890183}
   - component: {fileID: 6637374223506720091}
+  - component: {fileID: 1261451470414013557}
+  - component: {fileID: 2929605898412557861}
   m_Layer: 6
   m_Name: default-ship
   m_TagString: Untagged
@@ -103,28 +104,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3368916564331560363}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5060444177187149915, guid: 44ef80c52cd185540bd7e9d6cc15ae18, type: 3}
---- !u!54 &4437552298817687761
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3368916564331560363}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!114 &7332416218949866777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +173,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1070652330409769355}
+  healthManager: {fileID: 2929605898412557861}
+--- !u!54 &1261451470414013557
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368916564331560363}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &2929605898412557861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368916564331560363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b47358b87a5e340847a744a9e72a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  shieldBar: {fileID: 0}
+  playerHealthCurrent: 0
 --- !u!1001 &2773649894747075708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,7 +279,44 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2929102813876604407, guid: ecd5690e7f1bc4a4eb1bd6c89e3ab5c1, type: 3}
   m_PrefabInstance: {fileID: 2773649894747075708}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3623151800326470369
+--- !u!114 &5489717896301909816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070652330409769355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6aa25905907df448e8a2f1a3e8e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 6
+  magnitude:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.05
+      inSlope: -0.008333334
+      outSlope: -0.008333334
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 0
+      inSlope: -0.008333334
+      outSlope: -0.008333334
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6861348634207783412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,44 +335,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 1.4889437
+      outSlope: 1.4889437
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.15
-      value: 0.3
-      inSlope: 0.6231035
-      outSlope: 0.6231035
+      time: 0.21067312
+      value: 0.3136804
+      inSlope: 0.35203025
+      outSlope: 0.35203025
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.38413087
-      value: 0.123513795
-      inSlope: -0.6716827
-      outSlope: -0.6716827
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.4909525
-      value: 0.060534712
-      inSlope: -0.43550545
-      outSlope: -0.43550545
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6441518
-      value: 0.01741853
-      inSlope: -0.1651939
-      outSlope: -0.1651939
+      time: 0.54330575
+      value: 0.05260265
+      inSlope: -0.45003226
+      outSlope: -0.45003226
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -326,8 +362,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.048949327
-      outSlope: -0.048949327
+      inSlope: -0.11518133
+      outSlope: -0.11518133
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

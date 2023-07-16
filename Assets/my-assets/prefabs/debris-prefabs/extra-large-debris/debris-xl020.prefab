@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 782213389468533452}
   m_Layer: 0
   m_Name: debris-xl020
-  m_TagString: Untagged
+  m_TagString: DebrisCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6025360877497619914}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
