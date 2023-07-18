@@ -78,20 +78,34 @@ public class ObjectPooler : MonoBehaviour
 
     public IEnumerator shoot()
     {
-        Debug.Log("Fire");
-        GameObject bullet = poolDictionary["bulletPrefab"].Dequeue();
-         
-        bullet.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 20f;
-        bullet.transform.rotation = ship.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
+        // get reference to bullet object and its RB
+        if (poolDictionary["bulletPrefab"].Count != 0)
+        {
+            GameObject bullet = poolDictionary["bulletPrefab"].Dequeue();
+            Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
-        bullet.SetActive(true);
+            // set position and rotation relative to player display
+            bullet.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 50f;
+            bullet.transform.rotation = playerCamera.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
 
-        bullet.GetComponent<Rigidbody>().AddForce(ship.transform.forward * 500f, ForceMode.VelocityChange);
+            // visual cue
+            bullet.SetActive(true);
+            
+            // fire
+            bulletRB.AddForce(playerCamera.transform.forward * 3000f, ForceMode.VelocityChange);
 
-        yield return new WaitForSeconds(4f);
+            // wait until the bullet is out of the player's view
+            yield return new WaitForSeconds(4f);
 
-        bullet.SetActive(false);
+            // "unspawn" bullet
+            bullet.SetActive(false);
 
-        poolDictionary["bulletPrefab"].Enqueue(bullet);
+            // remove force/inertial effects
+            bulletRB.velocity = Vector3.zero;
+            bulletRB.angularVelocity = Vector3.zero;
+
+            // requeue for future use
+            poolDictionary["bulletPrefab"].Enqueue(bullet);
+        }
     }
 }

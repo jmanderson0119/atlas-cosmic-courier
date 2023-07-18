@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipBuild: {fileID: 0}
+  playerCamera: {fileID: 0}
   inputMode: 1
   invertedMouse: -1
   mouseLook: 80
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
+  playerCamera: {fileID: 0}
   pools:
   - identifier: debris-s001
     prefab: {fileID: 3059009269943808742, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}

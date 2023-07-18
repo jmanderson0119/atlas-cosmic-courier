@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// manages the player health on level reset/collisions/etc.
 public class HealthManager : MonoBehaviour
 {
     // visual health cues

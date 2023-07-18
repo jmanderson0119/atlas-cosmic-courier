@@ -119,6 +119,5 @@ public class FlightControls : MonoBehaviour
         throttleAcceleration -= 2f;
         shipBuild.GetComponent<FOVController>().setFullSpeedFOV(-20f);
         throttleIn = 125f; // throttleIn lerps to this value, so reverting to this max speed is important as well
-
     }
 }
