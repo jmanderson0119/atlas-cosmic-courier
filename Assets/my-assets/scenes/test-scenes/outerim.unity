@@ -458,6 +458,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
   m_PrefabInstance: {fileID: 958658336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &958658338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958658337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b5a36dcb564504d980c8ed75a32864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1063266503
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +609,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 317610338}
+    - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: pools.Array.size
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: materials.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -648,6 +668,18 @@ PrefabInstance:
       propertyPath: materials.Array.data[11]
       value: 
       objectReference: {fileID: 2100000, guid: 1b04106cec78ae541a2eb0fa9e3b3986, type: 2}
+    - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: pools.Array.data[100].size
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: pools.Array.data[100].prefab
+      value: 
+      objectReference: {fileID: 6973366644455973937, guid: 6c8994068e044a24aa998162d44e0ea6, type: 3}
+    - target: {fileID: 2990842743680464814, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
+      propertyPath: pools.Array.data[100].identifier
+      value: bulletPrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 3356169878079151079, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: ship
       value: 

@@ -34,7 +34,7 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void debrisShieldBreak()
+    public void debrisCollision()
     {
         if (getPlayerHealthCurrent() > 100)
         {

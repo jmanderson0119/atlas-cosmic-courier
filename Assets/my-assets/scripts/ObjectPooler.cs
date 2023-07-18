@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// object pool manager for all debris types (see environment-prefabs)
+// object pool manager for all debris types + player bullets
 public class ObjectPooler : MonoBehaviour
 {
     [Header("Ship + Debris")]
     [SerializeField] private GameObject ship; // needed for accessing positional data
+    [SerializeField] private GameObject playerCamera; // referencing for shoot() behavior
     [SerializeField] private List<Pool> pools; // collection of pools for config within Unity inspector
 
     private Dictionary<string, Queue<GameObject>> poolDictionary; // referencing for all pools by their ID
@@ -62,7 +63,7 @@ public class ObjectPooler : MonoBehaviour
             // spawns as many as desire per frame; I chose three because I liked the frequency of generation achieved
             for (int i = 0; i < spawnNum; i++)
             {
-                Pool randomPool = pools[Random.Range(0, pools.Count)]; // select random pool
+                Pool randomPool = pools[Random.Range(0, pools.Count - 1)]; // select random pool
                 GameObject spawnedObject = poolDictionary[randomPool.identifier].Dequeue(); // dequeue object
 
                 spawnedObject.SetActive(true); // "instantiate"
@@ -73,5 +74,24 @@ public class ObjectPooler : MonoBehaviour
                 poolDictionary[randomPool.identifier].Enqueue(spawnedObject); // place back it queue for future "instantiation"
             }
         }
+    }
+
+    public IEnumerator shoot()
+    {
+        Debug.Log("Fire");
+        GameObject bullet = poolDictionary["bulletPrefab"].Dequeue();
+         
+        bullet.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 20f;
+        bullet.transform.rotation = ship.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
+
+        bullet.SetActive(true);
+
+        bullet.GetComponent<Rigidbody>().AddForce(ship.transform.forward * 500f, ForceMode.VelocityChange);
+
+        yield return new WaitForSeconds(4f);
+
+        bullet.SetActive(false);
+
+        poolDictionary["bulletPrefab"].Enqueue(bullet);
     }
 }

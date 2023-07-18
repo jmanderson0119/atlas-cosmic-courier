@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6637374223506720091}
   - component: {fileID: 1261451470414013557}
   - component: {fileID: 2929605898412557861}
+  - component: {fileID: 605774600098224903}
   m_Layer: 6
   m_Name: default-ship
   m_TagString: Untagged
@@ -205,6 +206,18 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   shieldBar: {fileID: 0}
   playerHealthCurrent: 0
+--- !u!114 &605774600098224903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368916564331560363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b5a36dcb564504d980c8ed75a32864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2773649894747075708
 PrefabInstance:
   m_ObjectHideFlags: 0

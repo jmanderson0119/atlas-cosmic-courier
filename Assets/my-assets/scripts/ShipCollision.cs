@@ -30,7 +30,7 @@ public class ShipCollision : MonoBehaviour
             
             // visual cues
             StartCoroutine(shaker.collisionShake());
-            healthManager.debrisShieldBreak();
+            healthManager.debrisCollision();
         }
     }
 }
