@@ -35,7 +35,14 @@ public class FlightControls : MonoBehaviour
     private Vector2 lookIn; // mouse input relative to the screen center
     private float nextSpeedBoostActive; // next time a speed boost may be used
 
+    // getter used in debris spawning + aim assist
     public float getThrottleIn() => throttleIn;
+    public float getPitchSpeed() => pitchSpeed;
+    public float getYawSpeed() => yawSpeed;
+    
+    // setter methods for aim assist system
+    public void setPitchSpeed(float pitchSpeed) { this.pitchSpeed = pitchSpeed; }
+    public void setYawSpeed(float yawSpeed) { this.yawSpeed = yawSpeed; }
 
     // initialize flight control data using the ship config data
     void Start()
