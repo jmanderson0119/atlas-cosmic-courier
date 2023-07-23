@@ -38,8 +38,6 @@ public class AimAssist : MonoBehaviour
     // set new pitch and yaw sensitivity upon target entering AA field
     public void AimAssistEngage()
     {
-        Debug.Log("AA engaged");
-
         objectsToTarget++;
 
         if (objectsToTarget > 0)
@@ -52,9 +50,8 @@ public class AimAssist : MonoBehaviour
     // reset pitch and yaw sensitivity upon target leaving AA field
     public void AimAssistDisengage()
     {
-        Debug.Log("AA disengaged");
-
-        objectsToTarget--;
+        if (objectsToTarget > 0)
+            objectsToTarget--;
 
         if (objectsToTarget == 0)
         {

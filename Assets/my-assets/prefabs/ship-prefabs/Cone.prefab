@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5206865110831160226
+--- !u!1 &875866537439301013
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5206865110831160231}
-  - component: {fileID: 5206865110831160230}
-  - component: {fileID: 5206865110831160229}
-  - component: {fileID: 5206865110831160228}
-  - component: {fileID: 5206865110831160227}
-  - component: {fileID: 2678420156518879136}
-  m_Layer: 9
-  m_Name: aim-assist-field
+  - component: {fileID: 875866537439301008}
+  - component: {fileID: 875866537439301009}
+  - component: {fileID: 875866537439301010}
+  - component: {fileID: 875866537439301011}
+  - component: {fileID: 875866537439301012}
+  m_Layer: 0
+  m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5206865110831160231
+--- !u!4 &875866537439301008
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
+  m_GameObject: {fileID: 875866537439301013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,21 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5206865110831160230
+--- !u!33 &875866537439301009
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
+  m_GameObject: {fileID: 875866537439301013}
   m_Mesh: {fileID: 0}
---- !u!23 &5206865110831160229
+--- !u!23 &875866537439301010
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
+  m_GameObject: {fileID: 875866537439301013}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5206865110831160228
+--- !u!64 &875866537439301011
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
+  m_GameObject: {fileID: 875866537439301013}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -100,13 +99,13 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &5206865110831160227
+--- !u!114 &875866537439301012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
+  m_GameObject: {fileID: 875866537439301013}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 937e112073adb0b47afd6614fb11af14, type: 3}
@@ -119,20 +118,5 @@ MonoBehaviour:
   _material: {fileID: 0}
   _coneSides: 50
   _proportionalRadius: 0
-  _coneRadius: 125
+  _coneRadius: 12
   _coneHeight: 750
---- !u!114 &2678420156518879136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206865110831160226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bdce46158b8ef4cb4d809af0d0b6b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flightData: {fileID: 0}
-  adjustedPitchSpeed: 17.5
-  adjustedYawSpeed: 10
