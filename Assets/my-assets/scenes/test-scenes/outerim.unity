@@ -275,7 +275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2370600158406757690, guid: 09601433c753cea49a281c06c6eb4a85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -687,7 +687,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1618090505 stripped
 MonoBehaviour:
@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 126992852}
     - target: {fileID: 3356169878079151079, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5649953067216721393, guid: eec4f5a1ec83c294b85dd97e2f33adcb, type: 3}
       propertyPath: ship
