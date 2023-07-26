@@ -45,7 +45,7 @@ public class SpacePirateController : MonoBehaviour
     #endregion
 
     #region Node Comparer Class
-    // comparer type for nodeQueue, useful for getting Node with smallest f values quickly
+    // comparer type for candidateList, useful for getting Node with smallest f values quickly
     private class NodeComparer : IComparer<Node>
     {
         public int Compare(Node firstNode, Node secondNode)
@@ -87,23 +87,23 @@ public class SpacePirateController : MonoBehaviour
     public List<Vector3> Pathfinder(Vector3 enemyPosition, Vector3 destinationPoint)
     {
         // Initialize the open list of node candidates for the final path
-        PriorityQueue<Node> nodeQueue = new PriorityQueue<Node>(new NodeComparer());
-        nodeQueue.Add(new Node(null, transform.position));
+        SortedList<Node> candidateList = new SortedList<Node>(new NodeComparer());
+        candidateList.Add(new Node(null, transform.position));
 
         // Initialize the final path
         List<Vector3> traversalList = new List<Vector3>();
 
-        // Initialize the counting digits for generating each node candidate to be added to nodeQueue
+        // Initialize the counting digits for generating each node candidate to be added to candidateList
         int num1 = -1, num2 = -1, num3 = -1;
 
         // Initialize nodeList for inspecting nodes surrounding currentNode
         List<Node> nodeList = new List<Node>();
 
         // during each loop, the node corresponding to the shortest path will be added to traversalList
-        while (nodeQueue.Count != 0)
+        while (candidateList.Count != 0)
         {
             // remove the node with the smallest f value
-            Node currentNode = nodeQueue.Dequeue();
+            Node currentNode = candidateList.Dequeue();
             Debug.Log(currentNode.getCenterPosition());
 
             // create every candidate nodes and add to nodeList
@@ -143,7 +143,7 @@ public class SpacePirateController : MonoBehaviour
                 }
 
                 /* 
-                 * determine if candidate should be added to the nodeQueue or not. This will be based on the current contents of the nodeQueue 
+                 * determine if candidate should be added to the candidateList or not. This will be based on the current contents of the candidateList
                  * and the traversalList as well as the g, h, and f values of the candidates
                  */
                 foreach (Node nodeCandidate in nodeList)
