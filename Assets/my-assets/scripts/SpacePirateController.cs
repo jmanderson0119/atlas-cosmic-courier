@@ -32,7 +32,9 @@ public class SpacePirateController : MonoBehaviour
     [SerializeField] private float nodeFieldSize; // size of the box cast being performed for each candidate node (200f)
 
     private List<Node> pathList; // path enemy is currently traversing
+    private Node currentDestination; // current Node the enemy is traveling toward
     private RaycastHit raycastData; // raycast information for candidate nodes
+    private int nodeMarker = 0; // index of the node the enemy is to travel toward -- currentDestination index in pathList
     #endregion
 
     /// <summary>
@@ -44,7 +46,8 @@ public class SpacePirateController : MonoBehaviour
     {
         GoToPlayer,
         GoToPassPoint,
-        GoToSpawn
+        GoToSpawn,
+        TurnAround
     }
     #endregion
 
@@ -95,6 +98,7 @@ public class SpacePirateController : MonoBehaviour
 
 
         // setter methods
+        public void setCenterPosition(Vector3 centerPosition) { this.centerPosition = centerPosition; }
         public void setH(float h) { this.h = h; }
         public void setF() { this.f = this.g + this.h; }
     }
@@ -194,7 +198,14 @@ public class SpacePirateController : MonoBehaviour
                     // if destinationPoint resides in the field represented by nodeCandidate, this node will be added to the traversalList and the search is over
                     if (Mathf.Abs(destinationPoint.x - nodeCandidate.getCenterPosition().x) < 400f && Mathf.Abs(destinationPoint.y - nodeCandidate.getCenterPosition().y) < 400f && Mathf.Abs(destinationPoint.z - nodeCandidate.getCenterPosition().z) < 400f)
                     {
+                        nodeCandidate.setCenterPosition(destinationPoint); // set the node the player is going to traverse toward as the destinationPoint
+
+
                         traversalList.Add(nodeCandidate); // final node containing the enemy destination, completing the generated path
+                        currentDestination = traversalList[nodeMarker]; // set the first node in the list as the enemy's first traversal node
+
+
+                        pathList = traversalList; // save the traversal list produced into the current path of the enemy
 
                         return traversalList; // output the optimal path
                     }
@@ -260,13 +271,28 @@ public class SpacePirateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // perform actions + define traversal path by 
         switch(objective)
         {
             case Objective.GoToPlayer:
+                
+                // check if the enemy has reached a node in their traversal
+                if (Vector3.Distance(transform.position, currentDestination.getCenterPosition()))
+                {
+                    currentDestination = pathList[++nodeMarker];
+                }
                 break;
+
+
             case Objective.GoToPassPoint:
                 break;
+
+
             case Objective.GoToSpawn:
+                break;
+
+
+            case Objective.TurnAround:
                 break;
         }
     }
