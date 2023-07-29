@@ -24,15 +24,13 @@ public class SpacePirateController : MonoBehaviour
     [SerializeField] private Objective objective; // enemy objective
     [SerializeField] private GameObject bulletPrefab; // enemy projectile to fire at player
     [SerializeField] private float speed; // enemy speed
-    [SerializeField] private float pitchSpeed; // enemy pitch speed
-    [SerializeField] private float yawSpeed; // enemy yaw speed
+    [SerializeField] private float rotationSpeed; // enemy rotation speed
     [SerializeField] private float throttleSpeed; // enemy throttle speed
 
     [Header("Pathfinding Configuration")]
     [SerializeField] private float nodeFieldSize; // size of the box cast being performed for each candidate node (200f)
 
     private List<Node> pathList; // path enemy is currently traversing
-    private Node currentDestination; // current Node the enemy is traveling toward
     private RaycastHit raycastData; // raycast information for candidate nodes
     private int nodeMarker = 0; // index of the node the enemy is to travel toward -- currentDestination index in pathList
     #endregion
@@ -47,7 +45,8 @@ public class SpacePirateController : MonoBehaviour
         GoToPlayer,
         GoToPassPoint,
         GoToSpawn,
-        TurnAround
+        TurnAroundAtSpawn,
+        TurnAroundAtPassPoint
     }
     #endregion
 
@@ -267,33 +266,61 @@ public class SpacePirateController : MonoBehaviour
     }
     #endregion
 
+    // setting the current enemy objective is a matter of check the current objective and setting according to the objective-loop: go to player, go to pass point, turn around, go to spawn, turn around.
+    private void setObjective()
+    {
+        switch (objective)
+        {
+            case Objective.GoToPlayer:
+                objective = Objective.GoToPassPoint;
+                break;
+            case Objective.GoToPassPoint:
+                objective = Objective.TurnAroundAtPassPoint;
+                break;
+            case Objective.GoToSpawn:
+                objective = Objective.TurnAroundAtSpawn;
+                break;
+            case Objective.TurnAroundAtSpawn:
+                objective = Objective.GoToPlayer;
+                break;
+            case Objective.TurnAroundAtPassPoint:
+                objective = Objective.GoToSpawn;
+                break;
+        }
+    }
+    
+    // enemy will start traveling toward the next node in pathList
+    private void setNextDestination()
+    {
+        if (nodeMarker < pathList.Count - 1)
+            transform.rotation = pathList[++nodeMarker].getCenterPosition - transform.position;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // perform actions + define traversal path by 
+        // perform actions + define traversal path by objective
         switch(objective)
         {
             case Objective.GoToPlayer:
-                
-                // check if the enemy has reached a node in their traversal
-                if (Vector3.Distance(transform.position, currentDestination.getCenterPosition()))
-                {
-                    currentDestination = pathList[++nodeMarker];
-                }
-                break;
-
-
-            case Objective.GoToPassPoint:
-                break;
-
-
             case Objective.GoToSpawn:
-                break;
+            case Objective.GoToPassPoint:
+                transform.position += transform.forward * throttleSpeed * Time.deltaTime; // fly forward
 
+                // update node the enemy is traveling toward if sufficiently close to the current node set as the destination
+                if (Vector3.Distance(transform.position, pathList[nodeMarker].getCenterPosition()) < 50f)
+                {
+                    setNextDestination();
+                }
+
+                // if the enemy is at the end of the path they are traversing, the objective must be updated
+                if (pathList[nodeMarker].getCenterPosition() == destinationPoint && Vector3.Distance(pathList[nodeMarker].getCenterPosition(), destinationPoint))
+                {
+                    setObjective();
+                }
 
             case Objective.TurnAround:
-                break;
+                
         }
     }
 }
