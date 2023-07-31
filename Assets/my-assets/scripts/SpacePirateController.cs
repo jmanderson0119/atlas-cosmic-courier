@@ -23,7 +23,7 @@ public class SpacePirateController : MonoBehaviour
     [Header("Enemy Configuration")]
     [SerializeField] private Objective objective; // enemy objective
     [SerializeField] private GameObject bulletPrefab; // enemy projectile to fire at player
-    [SerializeField] private float speed; // enemy speed
+    private GameObject bullet; // bullet object holding prefab
     [SerializeField] private float rotationSpeed; // enemy rotation speed
     [SerializeField] private float throttleSpeed; // enemy throttle speed
 
@@ -33,6 +33,9 @@ public class SpacePirateController : MonoBehaviour
     private List<Node> pathList; // path enemy is currently traversing
     private RaycastHit raycastData; // raycast information for candidate nodes
     private int nodeMarker = 0; // index of the node the enemy is to travel toward -- currentDestination index in pathList
+    private bool shotsFired; // whether enemy has taken fire against player during dogfight loop
+    private Vector3 targetDirection; // objective rotation for enemy
+    private Quaternion targetRotation; // quaternion representation of targetDirection
     #endregion
 
     /// <summary>
@@ -199,10 +202,7 @@ public class SpacePirateController : MonoBehaviour
                     {
                         nodeCandidate.setCenterPosition(destinationPoint); // set the node the player is going to traverse toward as the destinationPoint
 
-
                         traversalList.Add(nodeCandidate); // final node containing the enemy destination, completing the generated path
-                        currentDestination = traversalList[nodeMarker]; // set the first node in the list as the enemy's first traversal node
-
 
                         pathList = traversalList; // save the traversal list produced into the current path of the enemy
 
@@ -261,7 +261,8 @@ public class SpacePirateController : MonoBehaviour
         }
 
 
-        // the list theoretically should never empty (while should run until node containing destinationPoint is found), but if this codepath is somehow reached, whatever is logged for the traversal should be returned
+        // the list theoretically should never empty (while-loop should run until node containing destinationPoint is found), but if this codepath is somehow reached, whatever is logged will be returned so I can observe what the pathfinder told the ship to do
+        pathList = traversalList;
         return traversalList;
     }
     #endregion
@@ -271,20 +272,35 @@ public class SpacePirateController : MonoBehaviour
     {
         switch (objective)
         {
+            // switch to next phase, start adapting to optimal paths every five seconds
             case Objective.GoToPlayer:
                 objective = Objective.GoToPassPoint;
+                InvokeRepeating("PathfinderWrapper", 0f, 5f);
+                shotsFired = false;
                 break;
+
+            // switch to next phase, reset shotsFired, start adapting to optimal paths every five seconds
             case Objective.GoToPassPoint:
                 objective = Objective.TurnAroundAtPassPoint;
+                CancelInvoke("PathfinderWrapper");
                 break;
+
+            // switch to next phase, find updated optimal paths every five seconds
             case Objective.GoToSpawn:
                 objective = Objective.TurnAroundAtSpawn;
+                CancelInvoke("PathfinderWrapper");
                 break;
+
+            // switch to next phase, stop calling pathfinder()
             case Objective.TurnAroundAtSpawn:
                 objective = Objective.GoToPlayer;
+                InvokeRepeating("PathfinderWrapper", 0f, 5f);
                 break;
+
+            // switch to next phase, stop calling pathfinder()
             case Objective.TurnAroundAtPassPoint:
                 objective = Objective.GoToSpawn;
+                InvokeRepeating("PathfinderWrapper", 0f, 5f);
                 break;
         }
     }
@@ -293,7 +309,16 @@ public class SpacePirateController : MonoBehaviour
     private void setNextDestination()
     {
         if (nodeMarker < pathList.Count - 1)
-            transform.rotation = pathList[++nodeMarker].getCenterPosition - transform.position;
+            transform.rotation = Quaternion.Euler(pathList[++nodeMarker].getCenterPosition() - transform.position);
+    }
+
+    // set the position, rotation, and objective 
+    void Start()
+    {
+        transform.position = player.transform.position + player.transform.up * 1000f + player.transform.forward * 4000f + player.transform.right * Random.Range(-500f, 500f);
+        transform.rotation = Quaternion.Euler(player.transform.forward * -1);
+        objective = Objective.GoToPlayer;
+        PathfinderWrapper();
     }
 
     // Update is called once per frame
@@ -303,7 +328,31 @@ public class SpacePirateController : MonoBehaviour
         switch(objective)
         {
             case Objective.GoToPlayer:
+                transform.position += transform.forward * throttleSpeed * Time.deltaTime; // fly forward
+
+                // update node the enemy is traveling toward if sufficiently close to the current node set as the destination
+                if (Vector3.Distance(transform.position, pathList[nodeMarker].getCenterPosition()) < 50f)
+                {
+                    setNextDestination();
+                }
+
+                // if the enemy is at the end of the path they are traversing, the objective must be updated
+                if (pathList[nodeMarker].getCenterPosition() == destinationPoint && Vector3.Distance(pathList[nodeMarker].getCenterPosition(), destinationPoint) < 100f)
+                {
+                    setObjective();
+                }
+                
+                // once the enemy is locked onto the player, they will start shooting
+                if (Vector3.Angle(transform.forward, player.transform.position - transform.position) < 20f && shotsFired == false)
+                {
+                    StartCoroutine("Shoot");
+                    shotsFired = true;
+                }
+
+                break;
+
             case Objective.GoToSpawn:
+
             case Objective.GoToPassPoint:
                 transform.position += transform.forward * throttleSpeed * Time.deltaTime; // fly forward
 
@@ -314,13 +363,93 @@ public class SpacePirateController : MonoBehaviour
                 }
 
                 // if the enemy is at the end of the path they are traversing, the objective must be updated
-                if (pathList[nodeMarker].getCenterPosition() == destinationPoint && Vector3.Distance(pathList[nodeMarker].getCenterPosition(), destinationPoint))
+                if (pathList[nodeMarker].getCenterPosition() == destinationPoint && Vector3.Distance(pathList[nodeMarker].getCenterPosition(), destinationPoint) < 100f)
                 {
                     setObjective();
                 }
 
-            case Objective.TurnAround:
+                break;
+
+            case Objective.TurnAroundAtSpawn:
+
+                targetDirection = player.transform.forward * -1; // objective is to rotate until the enemy is facing the player
+
+                targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up); // rotation for enemy to achieve
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); // smoothly rotate
+                transform.position += transform.forward * throttleSpeed * Time.deltaTime; // fly forward
+
+                // update objective if the enemy is close enough to completely turned-around
+                if (Vector3.Angle(transform.forward, player.transform.forward * -1) < 10f)
+                {
+                    setObjective();
+                }
+
+                break;
+
+            case Objective.TurnAroundAtPassPoint:
+
+                targetDirection = player.transform.forward; // objective is to rotate until the enemy is facing the player
+
+                targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up); // rotation for enemy to achieve
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); // smoothly rotate
+                transform.position += transform.forward * throttleSpeed * Time.deltaTime; // fly forward
+
+                // update objective if the enemy is close enough to completely turned-around
+                if (Vector3.Angle(transform.forward, player.transform.forward) < 10f)
+                {
+                    setObjective();
+                }
+
+                break;
                 
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        for (int i = 0; i < Random.Range(1, 5); i++)
+        {
+            if (objective == Objective.GoToPlayer)
+            {
+                // instantiate and initialize
+                bullet = Instantiate(bulletPrefab);
+                Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+
+                // set position and rotation relative to player display
+                bullet.transform.position = transform.position + transform.forward * 50f;
+                bullet.transform.rotation = transform.rotation * Quaternion.Euler(90f, 0f, 0f);
+
+                // fire
+                bulletRB.AddForce(transform.forward * 3000f, ForceMode.VelocityChange);
+
+                // wait until the bullet is out of the player's view
+                yield return new WaitForSeconds(4f);
+
+                // "unspawn" bullet
+                Destroy(bullet);
+
+                // wait for a bit
+                yield return new WaitForSeconds(2f);
+            }
+        }
+    }
+
+    // method wrapper for Pathfinder - calls the method given the current objective, which determines the destinationPoint
+    void PathfinderWrapper()
+    {
+        switch (objective)
+        {
+            case Objective.GoToPlayer:
+                Pathfinder(player.transform.position);
+                break;
+            case Objective.GoToPassPoint:
+                Pathfinder(player.transform.position + player.transform.up * 1000f + player.transform.forward * -4000f + player.transform.right * Random.Range(-500f, 500f));
+                break;
+            case Objective.GoToSpawn:
+                Pathfinder(player.transform.position + player.transform.up * 1000f + player.transform.forward * 4000f + player.transform.right * Random.Range(-500f, 500f));
+                break;
         }
     }
 }

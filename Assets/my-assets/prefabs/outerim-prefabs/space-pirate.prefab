@@ -136,7 +136,6 @@ MonoBehaviour:
   destinationPoint: {x: 0, y: 0, z: 0}
   objective: 0
   bulletPrefab: {fileID: 2659673789308701705, guid: bdea693ce3fff2e4baca35809a4b265f, type: 3}
-  speed: 250
-  pitchSpeed: 50
-  yawSpeed: 20
+  rotationSpeed: 100
+  throttleSpeed: 220
   nodeFieldSize: 200
